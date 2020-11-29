@@ -40,7 +40,7 @@ services:
       - --providers.docker.swarmmode # Enable Docker Swarm mode
       - --entrypoints.http.address=:80 # Create an entrypoint "http" listening on port 80
       - --entrypoints.https.address=:443 # Create an entrypoint "https" listening on port 443
-      - --certificatesresolvers.le.acme.email=webmaster@kasperdaems.be # Create the certificate resolver "le" for Let's Encrypt
+      - --certificatesresolvers.le.acme.email=${EMAIL?Variable not set} # Create the certificate resolver "le" for Let's Encrypt
       - --certificatesresolvers.le.acme.storage=/certificates/acme.json # Store the Let's Encrypt certificates in the mounted volume
       - --certificatesresolvers.le.acme.tlschallenge=true # Use the TLS Challenge for Let's Encrypt
       - --accesslog # Enable the access log, with HTTP requests
