@@ -15,13 +15,13 @@ services:
         - traefik.enable=true # Enable Traefik for this service, to make it available in the public network
         - traefik.docker.network=traefik-public # Use the traefik-public network (declared below)     
         - traefik.constraint-label=traefik-public # This public Traefik will only use services with this label
-        - traefik.http.middlewares.admin-auth.basicauth.users=yahatsuki:$apr1$/GPdOjGx$dPZ0FiRoqvEcoAat09sRP1 # admin-auth middleware with HTTP Basic auth
+        - traefik.http.middlewares.admin-auth.basicauth.users=${USERNAME?Variable not set}:${HASHED_PASSWORD?Variable not set} # admin-auth middleware with HTTP Basic auth
         - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https # https-redirect middleware to redirect HTTP to HTTPS
         - traefik.http.middlewares.https-redirect.redirectscheme.permanent=true # traefik-http set up only to use the middleware to redirect to https
-        - traefik.http.routers.traefik-public-http.rule=Host(`traefik.kasperdaems.be`) # Uses the environment variable DOMAIN
+        - traefik.http.routers.traefik-public-http.rule=Host(`${DOMAIN?Variable not set}`) # Uses the environment variable DOMAIN
         - traefik.http.routers.traefik-public-http.entrypoints=http # traefik-https the actual router using HTTPS
         - traefik.http.routers.traefik-public-http.middlewares=https-redirect
-        - traefik.http.routers.traefik-public-https.rule=Host(`traefik.kasperdaems.be`) # Uses the environment variable DOMAIN
+        - traefik.http.routers.traefik-public-https.rule=Host(`${DOMAIN?Variable not set}`) # Uses the environment variable DOMAIN
         - traefik.http.routers.traefik-public-https.entrypoints=https
         - traefik.http.routers.traefik-public-https.tls=true
         - traefik.http.routers.traefik-public-https.service=api@internal # Use the special Traefik service api@internal with the web UI/Dashboard
