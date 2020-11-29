@@ -3,7 +3,7 @@ version: '3.3'
 services:
 
   traefik:
-    mage: traefik:latest
+    image: traefik:latest
     ports:
       - 80:80 # Listen on port 80, default for HTTP, necessary to redirect to HTTPS
       - 443:443 # Listen on port 443, default for HTTPS
