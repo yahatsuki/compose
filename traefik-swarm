@@ -46,8 +46,8 @@ services:
       - --accesslog # Enable the access log, with HTTP requests
       - --log # Enable the Traefik log, for configurations and errors
       - --api # Enable the Dashboard and API
-    pilot:
-      token: "12d392c3-c371-404f-99fa-b3660121a33b"
+    #pilot:
+    # token: "12d392c3-c371-404f-99fa-b3660121a33b"
     networks:
       - traefik-public # Use the public network created to be shared between Traefik and any other service that needs to be publicly available with HTTPS
 
