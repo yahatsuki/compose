@@ -51,11 +51,6 @@ services:
     networks:
       - traefik-public # Use the public network created to be shared between Traefik and any other service that needs to be publicly available with HTTPS
 
-
-volumes:
-  # Create a volume to store the certificates, there is a constraint to make sure Traefik is always deployed to the same Docker node with the same volume containing the HTTPS certificates
-  public-certificates: 
-
 networks:
   # Use the previously created public network "traefik-public", shared with other services that need to be publicly available via this Traefik
   traefik-public:
