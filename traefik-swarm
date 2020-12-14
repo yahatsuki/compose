@@ -10,7 +10,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.labels.traefik-public.traefik-public-certificates == true # Make the traefik service run only on the node with this label
+          - node.labels.traefik-public.public-certificates == true # Make the traefik service run only on the node with this label
       labels:
         - traefik.enable=true # Enable Traefik for this service, to make it available in the public network
         - traefik.docker.network=traefik-public # Use the traefik-public network (declared below)     
@@ -54,7 +54,7 @@ services:
 
 volumes:
   # Create a volume to store the certificates, there is a constraint to make sure Traefik is always deployed to the same Docker node with the same volume containing the HTTPS certificates
-  /mnt/traefik/public-certificates: 
+  public-certificates: 
 
 networks:
   # Use the previously created public network "traefik-public", shared with other services that need to be publicly available via this Traefik
