@@ -48,5 +48,3 @@ networks:
   traefik-public:
     external: true
 
-volumes:
-  /mnt/portainer:
