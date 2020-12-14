@@ -54,7 +54,7 @@ services:
 
 volumes:
   # Create a volume to store the certificates, there is a constraint to make sure Traefik is always deployed to the same Docker node with the same volume containing the HTTPS certificates
-  public-certificates: 
+  /mnt/traefik/public-certificates: 
 
 networks:
   # Use the previously created public network "traefik-public", shared with other services that need to be publicly available via this Traefik
