@@ -20,7 +20,7 @@ services:
     image: portainer/portainer
     command: -H tcp://tasks.agent:9001 --tlsskipverify
     volumes:
-      - portainer-data:/data
+      - mnt/portainer:/data
     networks:
       - agent-network
       - traefik-public
@@ -49,4 +49,4 @@ networks:
     external: true
 
 volumes:
-  portainer-data:
+  /mnt/portainer:
