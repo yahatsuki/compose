@@ -33,7 +33,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       # Mount the volume to store the certificates
       - type: bind
-        source: mnt/portainer
+        source: /mnt/portainer
         target: /data
     command:
       - --providers.docker # Enable Docker in Traefik, so that it reads labels from Docker services
